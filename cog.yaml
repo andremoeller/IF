@@ -20,4 +20,4 @@ build:
     - "beautifulsoup4~=4.11.1"
 
 predict: "predict.py:Predictor"
-
+image: "cog-if:hf"
