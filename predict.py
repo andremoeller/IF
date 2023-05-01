@@ -20,7 +20,7 @@ class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
 
-        login(token=os.environ['HUGGINGFACE_KEY'])
+        login(token=os.environ['HUGGINGFACE_API_TOKEN'])
         self._generator = torch.manual_seed(0)
         stage_1 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-I-XL-v1.0", variant="fp16", torch_dtype=torch.float16)
         stage_1.enable_xformers_memory_efficient_attention()  # remove line if torch.__version__ >= 2.0.0
